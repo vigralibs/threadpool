@@ -118,7 +118,7 @@ FUNCTION(vigra_add_test target)
     IF(MSVC)
         SET(VIGRA_RUN_TEST "${CMAKE_CURRENT_BINARY_DIR}/run_${target}.bat")
         SET(VIGRA_TEST_EXECUTABLE "\"${VIGRA_TEST_EXECUTABLE}\"")  # take care of paths with spaces
-        CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/run_test.bat.in
+        CONFIGURE_FILE(${VigraAddTestPath}/run_test.bat.in
                        ${VIGRA_RUN_TEST}
                        @ONLY)
     ELSE()
