@@ -9,12 +9,12 @@ include(VigraAddExternal)
 include(VigraFindBoost)
 include(FindThreads)
 
-vigra_add_external(foundation REPO https://github.com/vigralibs/foundation)
+vigra_add_external(core REPO https://github.com/vigralibs/core)
 vigra_find_boost(REQUIRED COMPONENTS atomic python)
 find_package(TIFF)
 
 add_library(threadpool INTERFACE)
-target_link_libraries(threadpool INTERFACE foundation Threads::Threads Boost::disable_autolinking Boost::boost Boost::atomic Boost::python TIFF::TIFF)
+target_link_libraries(threadpool INTERFACE core Threads::Threads Boost::disable_autolinking Boost::boost Boost::atomic Boost::python TIFF::TIFF)
 
 target_include_directories(threadpool INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
